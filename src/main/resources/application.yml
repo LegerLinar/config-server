@@ -5,12 +5,15 @@ spring:
     name: config-server
 
 profiles:
-  active: native
+  active: git
 cloud:
   config:
     server:
-      native:
-        searchLocations:
+      git:
+        uri: https://github.com/LegerLinar/config-server
+        search-paths:
+          - "{/application}/{profile}"
+
 eureka:
   client:
     service-url:
